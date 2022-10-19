@@ -9,7 +9,7 @@ import com.example.manytomany.models.Course;
 import com.example.manytomany.repositories.CourseRepo;
 import com.github.javafaker.Faker;
 import java.util.concurrent.TimeUnit;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,12 +19,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class CourseService implements ICourseService {
 
-    @Autowired
-    CourseRepo courseRepo;
+    private final CourseRepo courseRepo;
+
+    public CourseService(CourseRepo courseRepo) {
+        this.courseRepo = courseRepo;
+    }
 
     @Override
-    public void addXFakeCourses(int x) {
-        for (int i = 0; i < x; i++) {
+    @Transactional
+    public void addXFakeCourses(int numberOfFakeCourses) {
+        for (int i = 0; i < numberOfFakeCourses; i++) {
             Faker faker = new Faker();
             Course course = new Course();
             course.setCClassroom(faker.number().digits(2));

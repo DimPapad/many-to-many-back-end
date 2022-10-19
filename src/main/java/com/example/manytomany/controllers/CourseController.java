@@ -20,12 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/course")
 public class CourseController {
 
-    @Autowired
-    ICourseService courseService;
+    private final ICourseService courseService;
 
-    @GetMapping("/add/{x}")
-    public void addXFakeCourses(@PathVariable int x) {
-        courseService.addXFakeCourses(x);
+    public CourseController(ICourseService courseService) {
+        this.courseService = courseService;
+    }
+
+    @GetMapping("/add/{numberOfFakeCourses}")
+    public void addXFakeCourses(@PathVariable int numberOfFakeCourses) {
+        courseService.addXFakeCourses(numberOfFakeCourses);
     }
 
 }

@@ -13,6 +13,6 @@ import com.example.manytomany.models.Course;
  */
 public interface ICourseService {
 
-    void addXFakeCourses(int x);
+    void addXFakeCourses(int numberOfFakeCourses);
 
 }

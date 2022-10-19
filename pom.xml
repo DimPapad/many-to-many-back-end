@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>manytomany</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>many_to_many</name>
+    <name>many-to-many-back-end</name>
     <description>Practice in entities with many to many relationship</description>
     <properties>
         <java.version>11</java.version>
