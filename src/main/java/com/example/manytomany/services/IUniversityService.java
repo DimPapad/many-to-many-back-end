@@ -5,16 +5,12 @@
  */
 package com.example.manytomany.services;
 
-import com.example.manytomany.models.Course;
-
 /**
  *
  * @author mhtso
  */
-public interface ICourseService {
+public interface IUniversityService {
 
-    void addXFakeCourses(int numberOfFakeCourses);
-
-    void assignUniversityToCourse(int universityId);
+    void addXFakeUniversities(int numberOfFakeUniversities);
 
 }

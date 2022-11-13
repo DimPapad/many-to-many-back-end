@@ -6,9 +6,9 @@
 package com.example.manytomany.controllers;
 
 import com.example.manytomany.services.ICourseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,9 +26,13 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @GetMapping("/add/{numberOfFakeCourses}")
+    @PostMapping("/add/{numberOfFakeCourses}")
     public void addXFakeCourses(@PathVariable int numberOfFakeCourses) {
         courseService.addXFakeCourses(numberOfFakeCourses);
     }
 
+    @PutMapping("/university/{universityId}")
+    public void assignUniversityToCourse(@PathVariable int universityId) {
+        courseService.assignUniversityToCourse(universityId);
+    }
 }

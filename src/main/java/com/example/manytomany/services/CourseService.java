@@ -40,4 +40,10 @@ public class CourseService implements ICourseService {
             courseRepo.save(course);
         }
     }
+
+    @Override
+    public void assignUniversityToCourse(int universityId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
