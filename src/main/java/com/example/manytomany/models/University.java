@@ -5,7 +5,9 @@
  */
 package com.example.manytomany.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -47,11 +49,13 @@ public class University implements Serializable {
     @Column(name = "u_location")
     private String uLocation;
     @ManyToMany(mappedBy = "universitySet")
+    @JsonIgnore
     private Set<Professor> professorSet;
     @ManyToMany(mappedBy = "universitySet")
+    @JsonIgnore
     private Set<Student> studentSet;
     @OneToMany(mappedBy = "cUId")
-    @JsonBackReference
+    @JsonIgnore
     private Set<Course> courseSet;
 
     public University() {

@@ -5,9 +5,11 @@
  */
 package com.example.manytomany.services;
 
+import com.example.manytomany.models.Course;
 import com.example.manytomany.models.University;
 import com.example.manytomany.repositories.UniversityRepo;
 import com.github.javafaker.Faker;
+import java.util.Set;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +38,20 @@ public class UniversityService implements IUniversityService {
             universityRepo.save(university);
         }
 
+    }
+
+    @Override
+    @Transactional
+    public University getUniversityById(int universityId) {
+        University university = universityRepo.findByUId(universityId);
+        return university;
+    }
+
+    @Override
+    @Transactional
+    public Set<Course> getUniversitysCourseSetById(int universityId) {
+        Set<Course> courseSet = universityRepo.findByUId(universityId).getCourseSet();
+        return courseSet;
     }
 
 }

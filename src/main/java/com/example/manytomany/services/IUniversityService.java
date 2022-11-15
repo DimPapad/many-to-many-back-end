@@ -5,6 +5,10 @@
  */
 package com.example.manytomany.services;
 
+import com.example.manytomany.models.Course;
+import com.example.manytomany.models.University;
+import java.util.Set;
+
 /**
  *
  * @author mhtso
@@ -12,5 +16,9 @@ package com.example.manytomany.services;
 public interface IUniversityService {
 
     void addXFakeUniversities(int numberOfFakeUniversities);
+
+    University getUniversityById(int universityId);
+
+    Set<Course> getUniversitysCourseSetById(int universityId);
 
 }
