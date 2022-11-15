@@ -19,4 +19,6 @@ public interface ICourseService {
 
     Course getCourseById(int courseId);
 
+    void deleteCourseById(int courseId);
+
 }

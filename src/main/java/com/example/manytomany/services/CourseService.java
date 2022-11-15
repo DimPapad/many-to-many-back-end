@@ -64,4 +64,10 @@ public class CourseService implements ICourseService {
         return course;
     }
 
+    @Override
+    @Transactional
+    public void deleteCourseById(int courseId) {
+        courseRepo.deleteById(courseId);
+    }
+
 }

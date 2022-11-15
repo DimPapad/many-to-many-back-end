@@ -6,6 +6,8 @@
 package com.example.manytomany.services;
 
 import com.example.manytomany.models.Course;
+import com.example.manytomany.models.Professor;
+import com.example.manytomany.models.Student;
 import com.example.manytomany.models.University;
 import com.example.manytomany.repositories.UniversityRepo;
 import com.github.javafaker.Faker;
@@ -52,6 +54,25 @@ public class UniversityService implements IUniversityService {
     public Set<Course> getUniversitysCourseSetById(int universityId) {
         Set<Course> courseSet = universityRepo.findByUId(universityId).getCourseSet();
         return courseSet;
+    }
+
+    @Override
+    @Transactional
+    public Set<Professor> getUniversitysProfessorSetById(int universityId) {
+        Set<Professor> professorSet = universityRepo.findByUId(universityId).getProfessorSet();
+        return professorSet;
+    }
+
+    @Override
+    @Transactional
+    public Set<Student> getUniversitysStudentSetById(int universityId) {
+        Set<Student> studentSet = universityRepo.findByUId(universityId).getStudentSet();
+        return studentSet;
+    }
+
+    @Override
+    public void deleteUniversityById(int universityId) {
+        universityRepo.deleteById(universityId);
     }
 
 }

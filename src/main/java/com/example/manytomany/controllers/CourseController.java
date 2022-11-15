@@ -7,6 +7,7 @@ package com.example.manytomany.controllers;
 
 import com.example.manytomany.models.Course;
 import com.example.manytomany.services.ICourseService;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +39,14 @@ public class CourseController {
         courseService.assignUniversityToCourse(courseId, universityId);
     }
 
-    @GetMapping("/{courseId}")
+    @GetMapping("/get/{courseId}")
     public Course getCourseById(@PathVariable int courseId) {
         Course course = courseService.getCourseById(courseId);
         return course;
+    }
+    
+    @DeleteMapping("/delete/{courseId}")
+    public void deleteCourseById(@PathVariable int courseId){
+        courseService.deleteCourseById(courseId);
     }
 }

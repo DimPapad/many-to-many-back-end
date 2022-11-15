@@ -6,6 +6,8 @@
 package com.example.manytomany.services;
 
 import com.example.manytomany.models.Course;
+import com.example.manytomany.models.Professor;
+import com.example.manytomany.models.Student;
 import com.example.manytomany.models.University;
 import java.util.Set;
 
@@ -20,5 +22,11 @@ public interface IUniversityService {
     University getUniversityById(int universityId);
 
     Set<Course> getUniversitysCourseSetById(int universityId);
+
+    Set<Professor> getUniversitysProfessorSetById(int universityId);
+
+    Set<Student> getUniversitysStudentSetById(int universityId);
+
+    void deleteUniversityById(int universityId);
 
 }

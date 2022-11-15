@@ -6,10 +6,12 @@
 package com.example.manytomany.controllers;
 
 import com.example.manytomany.models.Course;
+import com.example.manytomany.models.Professor;
+import com.example.manytomany.models.Student;
 import com.example.manytomany.models.University;
-import static com.example.manytomany.models.University_.courseSet;
 import com.example.manytomany.services.IUniversityService;
 import java.util.Set;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,15 +37,32 @@ public class UniversityController {
         universityService.addXFakeUniversities(numberOfFakeUniversities);
     }
 
-    @GetMapping("/{universityId}")
+    @GetMapping("/get/{universityId}")
     public University getUniversityById(@PathVariable int universityId) {
         University university = universityService.getUniversityById(universityId);
         return university;
     }
-    
-    @GetMapping("/{universityId}/courseset")
-    public Set<Course> getUniversitysCourseSetById(@PathVariable int universityId){
-        Set<Course> courseSet=universityService.getUniversitysCourseSetById(universityId);
+
+    @GetMapping("/get/{universityId}/courseset")
+    public Set<Course> getUniversitysCourseSetById(@PathVariable int universityId) {
+        Set<Course> courseSet = universityService.getUniversitysCourseSetById(universityId);
         return courseSet;
+    }
+
+    @GetMapping("/get/{universityId}/professorset")
+    public Set<Professor> getUniversitysProfessorSetById(@PathVariable int universityId) {
+        Set<Professor> professorSet = universityService.getUniversitysProfessorSetById(universityId);
+        return professorSet;
+    }
+
+    @GetMapping("/get/{universityId}/studentset")
+    public Set<Student> getUniversitysStudentSetById(@PathVariable int universityId) {
+        Set<Student> studentSet = universityService.getUniversitysStudentSetById(universityId);
+        return studentSet;
+    }
+
+    @DeleteMapping("/delete/{universityId}")
+    public void deleteUniversityById(@PathVariable int universityId) {
+        universityService.deleteUniversityById(universityId);
     }
 }
