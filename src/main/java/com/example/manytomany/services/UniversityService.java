@@ -5,8 +5,11 @@
  */
 package com.example.manytomany.services;
 
+import com.example.manytomany.models.University;
 import com.example.manytomany.repositories.UniversityRepo;
+import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -22,8 +25,17 @@ public class UniversityService implements IUniversityService {
     }
 
     @Override
+    @Transactional
     public void addXFakeUniversities(int numberOfFakeUniversities) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Faker faker = new Faker();
+        for (int i = 0; i < numberOfFakeUniversities; i++) {
+            University university = new University();
+            university.setUName(faker.university().name());
+            university.setUDiplomaExpertise(faker.job().field());
+            university.setULocation(faker.address().cityName());
+            universityRepo.save(university);
+        }
+
     }
 
 }

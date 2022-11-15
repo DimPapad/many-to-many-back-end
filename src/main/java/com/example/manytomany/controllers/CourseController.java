@@ -5,7 +5,9 @@
  */
 package com.example.manytomany.controllers;
 
+import com.example.manytomany.models.Course;
 import com.example.manytomany.services.ICourseService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,8 +33,14 @@ public class CourseController {
         courseService.addXFakeCourses(numberOfFakeCourses);
     }
 
-    @PutMapping("/university/{universityId}")
-    public void assignUniversityToCourse(@PathVariable int universityId) {
-        courseService.assignUniversityToCourse(universityId);
+    @PutMapping("/university/{courseId}/{universityId}")
+    public void assignUniversityToCourse(@PathVariable int courseId, @PathVariable int universityId) {
+        courseService.assignUniversityToCourse(courseId, universityId);
+    }
+
+    @GetMapping("/{courseId}")
+    public Course getCourseById(@PathVariable int courseId) {
+        Course course = courseService.getCourseById(courseId);
+        return course;
     }
 }

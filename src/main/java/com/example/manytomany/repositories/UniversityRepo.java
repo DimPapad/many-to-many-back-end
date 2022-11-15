@@ -16,4 +16,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UniversityRepo extends JpaRepository<University, Integer> {
 
+    University findByUId(int uId);
+
 }

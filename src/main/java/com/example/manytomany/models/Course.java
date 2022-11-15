@@ -5,6 +5,7 @@
  */
 package com.example.manytomany.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -60,6 +61,7 @@ public class Course implements Serializable {
     private String cLocation;
     @JoinColumn(name = "c_u_id", referencedColumnName = "u_id")
     @ManyToOne
+    @JsonManagedReference
     private University cUId;
 
     public Course() {
@@ -157,5 +159,5 @@ public class Course implements Serializable {
     public String toString() {
         return "com.example.manytomany.models.Course[ cId=" + cId + " ]";
     }
-    
+
 }

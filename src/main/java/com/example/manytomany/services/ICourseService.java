@@ -15,6 +15,8 @@ public interface ICourseService {
 
     void addXFakeCourses(int numberOfFakeCourses);
 
-    void assignUniversityToCourse(int universityId);
+    void assignUniversityToCourse(int courseId, int universityId);
+
+    Course getCourseById(int courseId);
 
 }
