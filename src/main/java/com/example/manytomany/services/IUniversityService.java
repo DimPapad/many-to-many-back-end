@@ -29,4 +29,6 @@ public interface IUniversityService {
 
     void deleteUniversityById(int universityId);
 
+    void deleteAllUniversities();
+
 }

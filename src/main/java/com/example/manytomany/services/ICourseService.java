@@ -21,4 +21,6 @@ public interface ICourseService {
 
     void deleteCourseById(int courseId);
 
+    void deleteAllCourses();
+
 }

@@ -70,4 +70,9 @@ public class CourseService implements ICourseService {
         courseRepo.deleteById(courseId);
     }
 
+    @Override
+    public void deleteAllCourses() {
+        courseRepo.deleteAll();
+    }
+
 }

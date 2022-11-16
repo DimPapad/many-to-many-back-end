@@ -71,8 +71,21 @@ public class UniversityService implements IUniversityService {
     }
 
     @Override
+    @Transactional
     public void deleteUniversityById(int universityId) {
         universityRepo.deleteById(universityId);
+        /*
+        TO-DO
+        Action when a University has a Course
+        - Are you sure you want to delete the University? YES/NO
+        - If yes, do you want to delete their Courses as well? YES/NO
+        */
+    }
+
+    @Override
+    @Transactional
+    public void deleteAllUniversities() {
+        universityRepo.deleteAll();
     }
 
 }

@@ -65,4 +65,9 @@ public class UniversityController {
     public void deleteUniversityById(@PathVariable int universityId) {
         universityService.deleteUniversityById(universityId);
     }
+
+    @DeleteMapping("/delete/all")
+    public void deleteAllUniversities() {
+        universityService.deleteAllUniversities();
+    }
 }
