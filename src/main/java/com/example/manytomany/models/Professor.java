@@ -54,9 +54,9 @@ public class Professor implements Serializable {
     @Column(name = "pr_office_location")
     private String prOfficeLocation;
     @Column(name = "pr_mobile_number")
-    private BigInteger prMobileNumber;
+    private Long prMobileNumber;
     @Column(name = "pr_other_phone_number")
-    private BigInteger prOtherPhoneNumber;
+    private Long prOtherPhoneNumber;
     @Lob
     @Column(name = "pr_identity_document")
     private byte[] prIdentityDocument;
@@ -126,19 +126,19 @@ public class Professor implements Serializable {
         this.prOfficeLocation = prOfficeLocation;
     }
 
-    public BigInteger getPrMobileNumber() {
+    public Long getPrMobileNumber() {
         return prMobileNumber;
     }
 
-    public void setPrMobileNumber(BigInteger prMobileNumber) {
+    public void setPrMobileNumber(Long prMobileNumber) {
         this.prMobileNumber = prMobileNumber;
     }
 
-    public BigInteger getPrOtherPhoneNumber() {
+    public Long getPrOtherPhoneNumber() {
         return prOtherPhoneNumber;
     }
 
-    public void setPrOtherPhoneNumber(BigInteger prOtherPhoneNumber) {
+    public void setPrOtherPhoneNumber(Long prOtherPhoneNumber) {
         this.prOtherPhoneNumber = prOtherPhoneNumber;
     }
 
@@ -190,5 +190,5 @@ public class Professor implements Serializable {
     public String toString() {
         return "com.example.manytomany.models.Professor[ prSsn=" + prSsn + " ]";
     }
-    
+
 }
